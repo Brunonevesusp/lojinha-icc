@@ -2,12 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+// estrutura referente ao estoque da loja
 typedef struct loja
 {
     int id, qtd;
     float preço;
     char nome[50];
 } Estoque;
+
 
 void insere_produto(Estoque *vet, int indice)
 {
@@ -17,6 +20,7 @@ void insere_produto(Estoque *vet, int indice)
     scanf("%f", &vet[indice].preço);
 }
 
+
 void aumenta_estoque(Estoque *vet)
 {
     int indice, aumento;
@@ -25,6 +29,7 @@ void aumenta_estoque(Estoque *vet)
     vet[indice].qtd += aumento;
 }
 
+
 void modifica_preco(Estoque *vet)
 {
     int indice;
@@ -32,6 +37,8 @@ void modifica_preco(Estoque *vet)
     scanf("%f", &vet[indice].preço);
 }
 
+
+// função principal
 int main(void)
 {
     int produtosdia, indice = 0;
@@ -39,8 +46,13 @@ int main(void)
     Estoque *vet;
 
     scanf("%d", &produtosdia);
+
+
+    // alocação dinâmica do estoque utilizando um vetor de structs
     vet = (Estoque*)malloc(produtosdia * sizeof(Estoque));
 
+
+    // laço de repetição para ler a entrada e chamar a função à que se refere o comando
     while(1)
     {
         scanf(" %s", sigla);
@@ -73,6 +85,10 @@ int main(void)
         else if(strcmp(sigla, "CS") == 0)
         {
             // consulta_saldo(vet);
+        }
+        else if(strcmp(sigla, "FE") == 0)
+        {
+            finaliza_dia();
         }
     }
 
