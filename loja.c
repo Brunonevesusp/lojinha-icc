@@ -47,6 +47,30 @@ void consulta_saldo(float saldo)
     printf("--------------------------------------------------\n");
 }
 
+
+void venda(Estoque *vet)
+{
+    float somapreço= 0;
+    int indice;
+
+    scanf("%d", &indice);
+
+
+
+    if (indice == vet[indice].id)
+    {
+    
+    printf(" %s %2.lf", vet[indice].nome, vet[indice].preço);
+    somapreço += vet[indice].preço;
+
+
+    // if (indice == -1) {
+       //     break;
+        // }
+    }
+}
+
+
 int main(void)
 {
     int produtos_iniciais, indice = 0, count = 1;
@@ -82,7 +106,7 @@ int main(void)
         }
         else if(strcmp(sigla, "VE") == 0)
         {
-            // venda(vet);
+            venda(vet);
         }
         else if(strcmp(sigla, "CE") == 0)
         {
